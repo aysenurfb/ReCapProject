@@ -10,6 +10,7 @@ using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+//using FluentAssertions.Common;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -41,6 +42,7 @@ builder.Services.AddDependencyResolvers(new ICoreModule[] {
     new CoreModule() });
 
 
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -65,7 +67,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader()); //web abinin angular da çalýsabilmesi için. ben bu siteye güveniyorum demektir.
 
 app.UseHttpsRedirection();
 app.UseRouting();
@@ -78,4 +80,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-

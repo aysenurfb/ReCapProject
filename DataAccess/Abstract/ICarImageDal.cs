@@ -10,5 +10,7 @@ namespace DataAccess.Abstract
 {
     public interface ICarImageDal : IEntityRepository<CarImage>
     {
+        void MultipleAdd(List<CarImage> images);
+        void MultipleDelete(List<CarImage> images);
     }
 }

@@ -18,6 +18,7 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
+            Thread.Sleep(5000); //yükleniyor işaretini görmek için çalışma süresünü 5 saniye yaptım
 
             var result = _carService.GetAll();
             if (result.Success)
@@ -51,6 +52,18 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+
+
+        [HttpGet("getbydetail")]
+        public IActionResult GetByDetail()
+        {
+            var result = _carService.GetByDetail();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }
 

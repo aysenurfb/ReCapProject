@@ -1,19 +1,14 @@
-﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using Core.Entities;
 
 namespace Entities.Concrete
 {
-    public class CarImage:IEntity
+    public class CarImage : IEntity
     {
-        //Id,CarId,ImagePath,Date
-
-        public int Id { get; set; }
+        [Key]
+        public int ImageId { get; set; }
         public int CarId { get; set; }
-        public string ImagePath { get; set; }  //databasede ntext yaptık hadi bakam 
-        public DateTime Date { get; set; }
+        public string ImagePath { get; set; }
     }
 }

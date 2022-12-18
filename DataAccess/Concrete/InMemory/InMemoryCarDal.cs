@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.Data_Access;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -68,6 +69,16 @@ namespace DataAccess.Concrete.InMemory
             carToUpdate.DailyPrice=car.DailyPrice;
             carToUpdate.Description=car.Description;
 
+        }
+
+        Car IEntityRepository<Car>.Add(Car entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Car IEntityRepository<Car>.Update(Car entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
