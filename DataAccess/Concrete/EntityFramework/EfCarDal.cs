@@ -26,14 +26,14 @@ namespace DataAccess.Concrete.EntityFramework
                              select new CarDetailDto
                              {
                                  CarId = car.Id,
-                                 CarName = car.CarName,
                                  BrandId = b.Id,
                                  ColorId = c.ColorId,
+                                 ModelYear = car.ModelYear,
+                                 CarName = car.CarName,
                                  BrandName = b.Name,
                                  ColorName = c.Name,
                                  DailyPrice = car.DailyPrice,
                                  Description = car.Description,
-                                 ModelYear = car.ModelYear,
                                  ImagePath = (from ci in context.CarImages where ci.CarId == car.Id select ci.ImagePath).FirstOrDefault()
                              };
 
@@ -81,14 +81,14 @@ namespace DataAccess.Concrete.EntityFramework
                              select new CarDetailDto
                              {
                                  CarId = car.Id,
-                                 CarName= b.Name,
                                  BrandId = b.Id,
                                  ColorId = c.ColorId,
+                                 ModelYear = car.ModelYear,
+                                 CarName = car.CarName,
                                  BrandName = b.Name,
                                  ColorName = c.Name,
-                                 Description = car.Description,
                                  DailyPrice = car.DailyPrice,
-                                 ModelYear = car.ModelYear,
+                                 Description = car.Description,
                                  ImagePath = (from ci in context.CarImages where car.Id == ci.CarId select ci.ImagePath).FirstOrDefault()
                              };
                 return result.ToList();
